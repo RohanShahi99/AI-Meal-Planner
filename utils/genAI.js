@@ -4,10 +4,7 @@ const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
 async function generateText({ prompt }) {
   try {
-    const modelInstance = genAI.getGenerativeModel(
-      { model: 'gemini-1.5-flash' },
-      { apiVersion: 'v1beta' }
-    );
+    const modelInstance = genAI.getGenerativeModel({ model: 'gemini-1.0-pro' });
     const result = await modelInstance.generateContent(prompt);
     return result;
   } catch (error) {
