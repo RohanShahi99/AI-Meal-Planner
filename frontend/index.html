@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Recipe Planner</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+  <h2>Ingredient Manager</h2>
+  <input type="text" id="ingredientName" placeholder="Ingredient name">
+  <!-- ✅ Use only onclick — event listener in script.js also targets this id -->
+  <button onclick="addIngredient()">Add Ingredient</button>
+  <ul id="ingredientList"></ul>
+
+  <h2>Generate Recipe</h2>
+  <!-- ✅ Added id="generateBtn" so the script.js event listener works -->
+  <button id="generateBtn">Generate AI Recipe</button>
+  <div id="recipeOutput"></div>
+
+  <button onclick="logout()">Logout</button>
+</div>
+<script src="script.js"></script>
+<!-- ✅ Removed duplicate inline getIngredients() call — DOMContentLoaded in script.js handles it -->
+</body>
+</html>
