@@ -28,7 +28,7 @@ Include recipe title, servings, prep time, cook time, ingredients list, and step
 Format the response in JSON.
     `;
 
-    const result = await genAI.generateText({ model: 'gemini-1.5-flash', prompt });
+    const result = await genAI.generateText({ model: 'gemini-pro', prompt });
     const rawText = result.response.text();
     const jsonText = extractJSON(rawText);
     const recipe = JSON.parse(jsonText);
@@ -56,7 +56,7 @@ Preferences: ${prefText || 'None'}.
 Format the meal plan with day-wise meals and recipe summaries in JSON.
     `;
 
-    const result = await genAI.generateText({ model: 'gemini-1.5-flash', prompt });
+    const result = await genAI.generateText({ model: 'gemini-pro', prompt });
     const rawText = result.response.text();
     const jsonText = extractJSON(rawText);
     const mealPlan = JSON.parse(jsonText);
