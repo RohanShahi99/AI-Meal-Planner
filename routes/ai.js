@@ -13,4 +13,4 @@ async function generateText({ prompt }) {
   }
 }
 
-module.exports = router;
+module.exports = { generateText };
