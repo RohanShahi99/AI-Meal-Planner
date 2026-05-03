@@ -24,7 +24,7 @@ app.use(rateLimit({
 
 // ── Serve Static Frontend Files ───────────────────────────────────────────────
 // ✅ Added so index.html / login.html / script.js / style.css are served properly
-app.use(express.static(path.join(__dirname, 'frontend')));
+app.use(express.static(path.join(__dirname, 'docs')));
 
 // ── API Routes ────────────────────────────────────────────────────────────────
 const authRoutes       = require('./routes/auth');
