@@ -1,10 +1,11 @@
-require('dotenv').config(); // ✅ Load env vars ONCE at the very top
+require('dotenv').config();
 
 const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
 
 const app = express();
+app.set('trust proxy', 1); // ✅ Fix for Render proxy
 
 // ── Body Parsers ──────────────────────────────────────────────────────────────
 app.use(express.json());
@@ -23,7 +24,6 @@ app.use(rateLimit({
 }));
 
 // ── Serve Static Frontend Files ───────────────────────────────────────────────
-// ✅ Added so index.html / login.html / script.js / style.css are served properly
 app.use(express.static(path.join(__dirname, 'docs')));
 
 // ── API Routes ────────────────────────────────────────────────────────────────
@@ -36,6 +36,7 @@ app.use('/api/auth',        authRoutes);
 app.use('/api/ingredients', ingredientRoutes);
 app.use('/api/recipes',     recipeRoutes);
 app.use('/api/ai',          aiRoutes);
+
 // ── Database Connection ───────────────────────────────────────────────────────
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log('MongoDB connected successfully'))
