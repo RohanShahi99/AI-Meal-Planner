@@ -36,7 +36,6 @@ app.use('/api/auth',        authRoutes);
 app.use('/api/ingredients', ingredientRoutes);
 app.use('/api/recipes',     recipeRoutes);
 app.use('/api/ai',          aiRoutes);
-
 // ── Database Connection ───────────────────────────────────────────────────────
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log('MongoDB connected successfully'))
